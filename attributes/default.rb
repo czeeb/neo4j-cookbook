@@ -18,3 +18,17 @@ default['neo4j']['neo4j-server.properties']['org.neo4j.server.webserver.https.ke
 default['neo4j']['neo4j-server.properties']['org.neo4j.server.http.log.enabled'] = false
 default['neo4j']['neo4j-server.properties']['org.neo4j.server.http.log.config'] = 'conf/neo4j-http-logging.xml'
 default['neo4j']['neo4j-server.properties']['org.neo4j.server.webadmin.rrdb.location'] = 'data/rrd'
+
+# neo4j.properties
+default['neo4j']['neo4j.properties']['allow_store_upgrade'] = nil
+default['neo4j']['neo4j.properties']['dbms.pagecache.memory'] = nil
+default['neo4j']['neo4j.properties']['cypher_parser_version'] = nil
+default['neo4j']['neo4j.properties']['keep_logical_logs'] = nil
+default['neo4j']['neo4j.properties']['node_auto_indexing'] = nil
+default['neo4j']['neo4j.properties']['node_keys_indexable'] = nil
+default['neo4j']['neo4j.properties']['relationship_auto_indexing'] = nil
+default['neo4j']['neo4j.properties']['relationship_keys_indexable'] = nil
+default['neo4j']['neo4j.properties']['remote_shell_enabled'] = false
+default['neo4j']['neo4j.properties']['remote_shell_host'] = '127.0.0.1'
+default['neo4j']['neo4j.properties']['remote_shell_port'] = 1337
+default['neo4j']['neo4j.properties']['cache_type'] = nil

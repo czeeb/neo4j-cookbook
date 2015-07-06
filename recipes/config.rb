@@ -25,5 +25,17 @@ template '/etc/neo4j/neo4j-server.properties' do
   owner 'neo4j'
   group 'adm'
   mode '0644'
+  backup 1
+  notifies :restart, 'service[neo4j-service]', :delayed
+end
+
+# Template for /etc/neo4j/neo4j.properties
+template '/etc/neo4j/neo4j.properties' do
+  action :create
+  source 'neo4j.properties.erb'
+  owner 'neo4j'
+  group 'adm'
+  mode '0644'
+  backup 1
   notifies :restart, 'service[neo4j-service]', :delayed
 end
