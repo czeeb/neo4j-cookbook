@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: neo4j
-# Recipe:: default
+# Recipe:: config
 #
 # Copyright (c) 2015 Chris Zeeb <chris.zeeb@gmail.com>
 #
@@ -16,9 +16,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-include_recipe 'apt'
-include_recipe 'java'
-include_recipe 'neo4j::install'
 include_recipe 'neo4j::service'
-include_recipe 'neo4j::config'
+
+# Template for /etc/neo4j/neo4j-server.properties
+template '/etc/neo4j/neo4j-server.properties' do
+  action :create
+  source 'neo4j-server.properties.erb'
+  owner 'neo4j'
+  group 'adm'
+  mode '0644'
+  notifies :restart, 'service[neo4j-service]', :delayed
+end

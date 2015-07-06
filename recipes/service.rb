@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: neo4j
-# Recipe:: default
+# Recipe:: service
 #
 # Copyright (c) 2015 Chris Zeeb <chris.zeeb@gmail.com>
 #
@@ -17,8 +17,8 @@
 # limitations under the License.
 #
 
-include_recipe 'apt'
-include_recipe 'java'
-include_recipe 'neo4j::install'
-include_recipe 'neo4j::service'
-include_recipe 'neo4j::config'
+service 'neo4j-service' do
+  action [:enable, :start]
+  supports :restart => true
+  provider Chef::Provider::Service::Init::Debian
+end
