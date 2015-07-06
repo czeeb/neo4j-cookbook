@@ -79,3 +79,63 @@ remote_shell_port=<%= node['neo4j']['neo4j.properties']['remote_shell_port'] %>
 <% if node['neo4j']['neo4j.properties']['cache_type'] %>
 cache_type=<%= node['neo4j']['neo4j.properties']['cache_type'] %>
 <% end -%>
+<% if node['neo4j']['neo4j.properties']['allow_file_urls'] %>
+allow_file_urls=<%= node['neo4j']['neo4j.properties']['allow_file_urls'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['dbms.cypher.min_replan_interval'] %>
+dbms.cypher.min_replan_interval=<%= node['neo4j']['neo4j.properties']['dbms.cypher.min_replan_interval'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['dbms.cypher.planner'] %>
+dbms.cypher.planner=<%= node['neo4j']['neo4j.properties']['dbms.cypher.planner'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['dbms.querylog.enabled'] %>
+dbms.querylog.enabled=<%= node['neo4j']['neo4j.properties']['dbms.querylog.enabled'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['dbms.querylog.filename'] %>
+dbms.querylog.filename=<%= node['neo4j']['neo4j.properties']['dbms.querylog.filename'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['dbms.querylog.threshold'] %>
+dbms.querylog.threshold=<%= node['neo4j']['neo4j.properties']['dbms.querylog.threshold'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['dense_node_threshold'] %>
+dense_node_threshold=<%= node['neo4j']['neo4j.properties']['dense_node_threshold'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['dump_configuration'] %>
+dump_configuration=<%= node['neo4j']['neo4j.properties']['dump_configuration'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['index_background_sampling_enabled'] %>
+index_background_sampling_enabled=<%= node['neo4j']['neo4j.properties']['index_background_sampling_enabled'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['index_sampling_buffer_size'] %>
+index_background_sampling_enabled=<%= node['neo4j']['neo4j.properties']['index_sampling_buffer_size'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['index_sampling_update_percentage'] %>
+index_background_sampling_enabled=<%= node['neo4j']['neo4j.properties']['index_sampling_update_percentage'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['logical_log_rotation_threshold'] %>
+logical_log_rotation_threshold=<%= node['neo4j']['neo4j.properties']['logical_log_rotation_threshold'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['lucene_searcher_cache_size'] %>
+lucene_searcher_cache_size=<%= node['neo4j']['neo4j.properties']['lucene_searcher_cache_size'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['query_cache_size'] %>
+query_cache_size=<%= node['neo4j']['neo4j.properties']['query_cache_size'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['read_only'] %>
+read_only=<%= node['neo4j']['neo4j.properties']['read_only'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['relationship_grab_size'] %>
+relationship_grab_size=<%= node['neo4j']['neo4j.properties']['relationship_grab_size'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['remote_logging_enabled'] %>
+remote_logging_enabled=<%= node['neo4j']['neo4j.properties']['remote_logging_enabled'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['remote_logging_host'] %>
+    remote_logging_enabled=<%= node['neo4j']['neo4j.properties']['remote_logging_host'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['remote_logging_port'] %>
+    remote_logging_enabled=<%= node['neo4j']['neo4j.properties']['remote_logging_port'] %>
+<% end -%>
+<% if node['neo4j']['neo4j.properties']['store_dir'] %>
+store_dir=<%= node['neo4j']['neo4j.properties']['store_dir'] %>
+<% end -%>
