@@ -17,8 +17,14 @@
 # limitations under the License.
 #
 
+if node.platform == 'debian' && node.platform_version.to_f >= 8
+  service_provider = Chef::Provider::Service::Systemd
+else
+  service_provider = Chef::Provider::Service::Init::Debian
+end
+
 service 'neo4j-service' do
   action [:enable, :start]
   supports :restart => true
-  provider Chef::Provider::Service::Init::Debian
+  provider service_provider
 end
