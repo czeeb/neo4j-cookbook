@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-if node.platform == 'debian' && node.platform_version.to_f >= 8
+if node['platform'] == 'debian' && node['platform_version'].to_f >= 8
   service_provider = Chef::Provider::Service::Systemd
 else
   service_provider = Chef::Provider::Service::Init::Debian
