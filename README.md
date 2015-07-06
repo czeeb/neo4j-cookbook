@@ -72,6 +72,12 @@ Wherever possible I use the default settings from Neo4j for the defaults in the 
 * `node['neo4j']['neo4j.properties']['remote_logging_port']` - Port for remote logging using Logback SocketAppender.
 * `node['neo4j']['neo4j.properties']['store_dir']` - The directory where the database files are located.
 
+### neo4j-wrapper.conf
+* `node['neo4j']['neo4j-wrapper.conf']['wrapper.java.additional'] - Array of arguements to pass to java
+* `node['neo4j']['neo4j-wrapper.conf']['wrapper.java.initmemory'] - Set heap size
+* `node['neo4j']['neo4j-wrapper.conf']['wrapper.java.maxmemory'] - Set heap size maximum
+* `node['neo4j']['neo4j-wrapper.conf']['wrapper.pidfile'] - Set pidfile
+
 Usage
 -----
 #### neo4j::default

@@ -52,3 +52,17 @@ default['neo4j']['neo4j.properties']['remote_logging_enabled'] = nil
 default['neo4j']['neo4j.properties']['remote_logging_host'] = nil
 default['neo4j']['neo4j.properties']['remote_logging_port'] = nil
 default['neo4j']['neo4j.properties']['store_dir'] = nil
+
+# neo4j-wrapper.conf
+default['neo4j']['neo4j-wrapper.conf']['wrapper.java.additional'] = %w(
+  -Dorg.neo4j.server.properties=conf/neo4j-server.properties
+  -Djava.util.logging.config.file=conf/logging.properties
+  -XX:+UseConcMarkSweepGC
+  -XX:+CMSClassUnloadingEnabled
+  -XX:-OmitStackTraceInFastThrow
+  -XX:hashCode=5
+  -Dneo4j.ext.udc.source=debian
+)
+default['neo4j']['neo4j-wrapper.conf']['wrapper.java.initmemory'] = nil
+default['neo4j']['neo4j-wrapper.conf']['wrapper.java.maxmemory'] = nil
+default['neo4j']['neo4j-wrapper.conf']['wrapper.pidfile'] = '../data/neo4j-server.pid'
