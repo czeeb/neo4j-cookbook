@@ -9,7 +9,7 @@ Platforms
 ---------
 The following platforms and versions are tested and supported using [test-kitchen](http://kitchen.ci/)
 
-* Debian 7, 8
+* Debian 7.8, 8.1
 * Ubuntu 12.04, 14.04
 
 Usage
