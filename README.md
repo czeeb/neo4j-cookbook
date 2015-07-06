@@ -1,6 +1,7 @@
 neo4j Cookbook
 ==============
-[![Build Status](https://travis-ci.org/czeeb/neo4j-cookbook.svg)](https://travis-ci.org/czeeb/neo4j-cookbook)
+[![Build Status](https://travis-ci.org/czeeb/neo4j-cookbook.svg?branch=master)](https://travis-ci.org/czeeb/neo4j-cookbook)
+[![Dependency Status](https://gemnasium.com/czeeb/neo4j-cookbook.svg)](https://gemnasium.com/czeeb/neo4j-cookbook)
 
 This cookbook installs neo4j.
 
