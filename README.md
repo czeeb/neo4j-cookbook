@@ -1,5 +1,7 @@
 neo4j Cookbook
 ==============
+[![Build Status](https://travis-ci.org/czeeb/neo4j-cookbook.svg)](https://travis-ci.org/czeeb/neo4j-cookbook)
+
 This cookbook installs neo4j.
 
 Platforms
