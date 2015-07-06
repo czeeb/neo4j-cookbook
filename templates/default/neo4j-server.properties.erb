@@ -44,7 +44,7 @@ org.neo4j.server.webserver.https.enabled=<%= node['neo4j']['neo4j-server.propert
 org.neo4j.server.webserver.https.port=<%= node['neo4j']['neo4j-server.properties']['org.neo4j.server.https.port'] %>
 
 # Certificate location (auto generated if the file does not exist)
-org.neo4j.server.webserver.https.cert.location=<%= node['neo4j']['neo4j-server.properties']['org.neo4j.server.webserver.https.cert.location'] %>>
+org.neo4j.server.webserver.https.cert.location=<%= node['neo4j']['neo4j-server.properties']['org.neo4j.server.webserver.https.cert.location'] %>
 
 # Private key location (auto generated if the file does not exist)
 org.neo4j.server.webserver.https.key.location=<%= node['neo4j']['neo4j-server.properties']['org.neo4j.server.webserver.https.key.location'] %>
@@ -85,4 +85,4 @@ org.neo4j.server.http.log.config=<%= node['neo4j']['neo4j-server.properties']['o
 # - absolute path like /var/rrd
 # - path relative to the server working directory like data/rrd
 # - commented out, will default to the database data directory.
-org.neo4j.server.webadmin.rrdb.location=<%= node['neo4j']['neo4j-server.properties']['org.neo4j.server.webadmin.rrdb.location'] %>>
+org.neo4j.server.webadmin.rrdb.location=<%= node['neo4j']['neo4j-server.properties']['org.neo4j.server.webadmin.rrdb.location'] %>

@@ -16,5 +16,5 @@ default['neo4j']['neo4j-server.properties']['org.neo4j.server.webserver.https.ce
 default['neo4j']['neo4j-server.properties']['org.neo4j.server.webserver.https.key.location'] = 'conf/ssl/snakeoil.key'
 default['neo4j']['neo4j-server.properties']['org.neo4j.server.webserver.https.keystore.location'] = 'data/keystore'
 default['neo4j']['neo4j-server.properties']['org.neo4j.server.http.log.enabled'] = false
-default['neo4j']['neo4j-server.properties']['org.neo4j.server.http.log.config'] = 'config/neo4j-http-logging.xml'
+default['neo4j']['neo4j-server.properties']['org.neo4j.server.http.log.config'] = 'conf/neo4j-http-logging.xml'
 default['neo4j']['neo4j-server.properties']['org.neo4j.server.webadmin.rrdb.location'] = 'data/rrd'
