@@ -2,8 +2,9 @@ neo4j Cookbook
 ==============
 [![Build Status](https://travis-ci.org/czeeb/neo4j-cookbook.svg?branch=master)](https://travis-ci.org/czeeb/neo4j-cookbook)
 [![Dependency Status](https://gemnasium.com/czeeb/neo4j-cookbook.svg)](https://gemnasium.com/czeeb/neo4j-cookbook)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/czeeb/neo4j-cookbook?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-This cookbook installs neo4j.
+This cookbook installs and configures neo4j.
 
 Platforms
 ---------
@@ -17,7 +18,7 @@ Attributes
 
 Wherever possible I use the default settings from Neo4j for the defaults in the attributes file.
 
-* `node['neo4j']['release'] - Package version to install
+* `node['neo4j']['release']` - Package version to install
 
 ### neo4j-server.properties
 
@@ -73,10 +74,10 @@ Wherever possible I use the default settings from Neo4j for the defaults in the 
 * `node['neo4j']['neo4j.properties']['store_dir']` - The directory where the database files are located.
 
 ### neo4j-wrapper.conf
-* `node['neo4j']['neo4j-wrapper.conf']['wrapper.java.additional'] - Array of arguements to pass to java
-* `node['neo4j']['neo4j-wrapper.conf']['wrapper.java.initmemory'] - Set heap size
-* `node['neo4j']['neo4j-wrapper.conf']['wrapper.java.maxmemory'] - Set heap size maximum
-* `node['neo4j']['neo4j-wrapper.conf']['wrapper.pidfile'] - Set pidfile
+* `node['neo4j']['neo4j-wrapper.conf']['wrapper.java.additional']` - Array of arguements to pass to java
+* `node['neo4j']['neo4j-wrapper.conf']['wrapper.java.initmemory']` - Set heap size
+* `node['neo4j']['neo4j-wrapper.conf']['wrapper.java.maxmemory']` - Set heap size maximum
+* `node['neo4j']['neo4j-wrapper.conf']['wrapper.pidfile']` - Set pidfile
 
 Usage
 -----
