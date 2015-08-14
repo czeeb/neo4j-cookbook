@@ -3,6 +3,12 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   Exclude:
     - metadata.rb
+    - Rakefile
+    - Berksfile
+    - Vagrantfile
+    - Thorfile
+    - Gemfile
+    - '.kitchen/*'
 
 Metrics/LineLength:
   Max: 200
