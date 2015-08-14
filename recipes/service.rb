@@ -17,14 +17,16 @@
 # limitations under the License.
 #
 
-if node['platform'] == 'debian' && node['platform_version'].to_f >= 8
-  service_provider = Chef::Provider::Service::Systemd
-else
-  service_provider = Chef::Provider::Service::Init::Debian
-end
+service_provider = case node['platform_family']
+                   when 'debian'
+                     if node['platform'] == 'debian' && node['platform_version'].to_f >= 8
+                       Chef::Provider::Service::Systemd
+                     end
+                   end
 
-service 'neo4j-service' do
+service 'neo4j' do
+  service_name 'neo4j-service' if node['platform_family'] == 'debian'
   action [:enable, :start]
   supports :restart => true
-  provider service_provider
+  provider service_provider if node['neo4j']['install_method'] == 'package'
 end

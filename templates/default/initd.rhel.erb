@@ -1,0 +1,151 @@
+#!/bin/sh
+#
+# This configuration file is managed by chef
+# Do not edit by hand.  Your changes will be overwritten
+#
+# neo4j Neo4j Graph Database
+#
+# chkconfig: 2345 99 20
+# processname: java
+# config:      /etc/neo4j/neo4j-server.properties
+# config:      /etc/neo4j/neo4j.properties
+# pidfile:     /var/run/neo4j.pid
+# Provides:          neo4j-service
+# Required-Start:
+# Required-Stop:
+# Should-Start:
+# Should-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: The Neo4J graph database server. See http://neo4j.org
+# Description:
+### END INIT INFO
+
+# Copyright (c) 2002-2015 "Neo Technology,"
+
+# Network Engine for Objects in Lund AB [http://neotechnology.com]
+#
+# This file is part of Neo4j.
+#
+# Neo4j is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# Source function library.
+if [ -f /etc/rc.d/init.d/functions ]; then
+  . /etc/rc.d/init.d/functions
+fi
+
+pidfile='<%= node['neo4j']['pid_file'] %>'
+exec='<%= node['neo4j']['home_dir'] %>/bin/neo4j'
+prog='neo4j'
+neo4j_user='<%= node['neo4j']['user'] %>'
+
+[ -e /etc/sysconfig/$prog ] && . /etc/sysconfig/$prog
+
+lockfile=/var/lock/subsys/$prog
+
+export JAVA_HOME
+
+checkjava() {
+  if [ -x "$JAVA_HOME/bin/java" ]; then
+    JAVA="$JAVA_HOME/bin/java"
+  else
+    JAVA=`which java`
+  fi
+
+  if [ ! -x "$JAVA" ]; then
+    echo "unable to locate java executable binary. Please install java in your PATH or set JAVA_HOME"
+    exit 1
+  fi
+}
+
+checkexec() {
+  if [ ! -x "$exec" ]; then
+    echo "$exec does not exists or not executable"
+    exit 5
+  fi
+}
+
+start() {
+    checkjava
+    checkexec
+    ulimit -n <%= node['neo4j']['limits']['files'] %>
+    echo -n $"Starting $prog: "
+    daemon --user $neo4j_user --pidfile $pidfile $exec start
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && touch $lockfile
+    return $retval
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc -p $pidfile -d 20 $prog
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && rm -f $lockfile
+    return $retval
+}
+
+restart() {
+    stop
+    start
+}
+
+reload() {
+    restart
+}
+
+force_reload() {
+    restart
+}
+
+rh_status() {
+    # run checks to determine if the service is running or use generic status
+    status -p $pidfile $prog
+}
+
+rh_status_q() {
+    rh_status >/dev/null 2>&1
+}
+
+case "$1" in
+    start)
+        rh_status_q && exit 0
+        $1
+        ;;
+    stop)
+        rh_status_q || exit 0
+        $1
+        ;;
+    restart)
+        $1
+        ;;
+    reload)
+        rh_status_q || exit 7
+        $1
+        ;;
+    force-reload)
+        force_reload
+        ;;
+    status)
+        rh_status
+        ;;
+    condrestart|try-restart)
+        rh_status_q || exit 0
+        restart
+        ;;
+    *)
+        echo $"Usage: $0 {start|stop|status|restart|try-restart|force-reload|condrestart}"
+        exit 2
+esac
