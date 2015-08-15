@@ -29,7 +29,7 @@ include_recipe 'neo4j::user'
   end
 end
 
-tarball_file  = ::File.join(node['neo4j']['parent_dir'], "neo4j-#{node['neo4j']['edition']}-#{node['neo4j']['release']}-unix.tar.gz")
+tarball_file = ::File.join(node['neo4j']['parent_dir'], "neo4j-#{node['neo4j']['edition']}-#{node['neo4j']['release']}-unix.tar.gz")
 
 # stop neo4j service if running for upgrade
 service 'neo4j' do
