@@ -42,7 +42,11 @@ default['neo4j']['home_dir']  = case node['neo4j']['install_method']
 
 # this works for both package and tarball
 default['neo4j']['conf_dir'] = ::File.join(node['neo4j']['home_dir'], 'conf')
-default['neo4j']['data_dir'] = ::File.join(node['neo4j']['home_dir'], 'data', 'graph.db')
+default['neo4j']['data_dir'] = value_for_platform_family(
+  'debian' => ::File.join(node['neo4j']['home_dir'], 'data', 'graph.db'),
+  'rhel' => '/var/lib/neo4j'
+)
+
 default['neo4j']['pid_file'] = ::File.join(node['neo4j']['home_dir'], 'data', 'neo4j-service.pid')
 default['neo4j']['auth_dir'] = ::File.join(node['neo4j']['home_dir'], 'data', 'dbms')
 default['neo4j']['auth_file'] = ::File.join(node['neo4j']['auth_dir'], 'auth')
