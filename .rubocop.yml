@@ -9,6 +9,7 @@ AllCops:
     - Thorfile
     - Gemfile
     - '.kitchen/*'
+    - 'spec/*'
 
 Metrics/LineLength:
   Max: 200
