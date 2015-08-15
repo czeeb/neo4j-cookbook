@@ -14,6 +14,6 @@ supports 'centos'
 supports 'amazon'
 supports 'redhat'
 
-depends 'yum', '~> 2.7.0'
+depends 'yum', '~> 3.2.0'
 depends 'apt', '~> 2.7.0'
 depends 'java', '~> 1.31.0'
