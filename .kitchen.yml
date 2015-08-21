@@ -6,6 +6,8 @@ provisioner:
   name: chef_zero
 
 platforms:
+  - name: centos-6.6
+  - name: centos-7.1
   - name: debian-7.8
   - name: debian-8.1
   - name: ubuntu-12.04
@@ -15,3 +17,22 @@ suites:
   - name: default
     run_list:
       - recipe[neo4j::default]
+  - name: enterprise
+    run_list:
+      - recipe[neo4j::default]
+    attributes:
+      neo4j:
+        edition: enterprise
+  - name: tarball
+    run_list:
+      - recipe[neo4j::default]
+    attributes:
+      neo4j:
+        install_method: tarball
+  - name: enterprise-tarball
+    run_list:
+      - recipe[neo4j::default]
+    attributes:
+      neo4j:
+        install_method: tarball
+        edition: enterprise
