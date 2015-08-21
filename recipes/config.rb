@@ -16,37 +16,48 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-include_recipe 'neo4j::service'
 
 # Template for /etc/neo4j/neo4j-server.properties
-template '/etc/neo4j/neo4j-server.properties' do
-  action :create
+template ::File.join(node['neo4j']['conf_dir'], 'neo4j-server.properties') do
   source 'neo4j-server.properties.erb'
-  owner 'neo4j'
-  group 'adm'
+  owner node['neo4j']['user']
+  group node['neo4j']['group']
   mode '0644'
-  backup 1
-  notifies :restart, 'service[neo4j-service]', :delayed
+  backup node['neo4j']['chef_backup']
+  variables(:config => node['neo4j']['config']['neo4j-server.properties'])
+  notifies :restart, 'service[neo4j]', :delayed if node['neo4j']['notify_restart']
 end
 
 # Template for /etc/neo4j/neo4j.properties
-template '/etc/neo4j/neo4j.properties' do
-  action :create
+template ::File.join(node['neo4j']['conf_dir'], 'neo4j.properties') do
   source 'neo4j.properties.erb'
-  owner 'neo4j'
-  group 'adm'
+  owner node['neo4j']['user']
+  group node['neo4j']['group']
   mode '0644'
-  backup 1
-  notifies :restart, 'service[neo4j-service]', :delayed
+  backup node['neo4j']['chef_backup']
+  variables(:config => node['neo4j']['config']['neo4j.properties'])
+  notifies :restart, 'service[neo4j]', :delayed if node['neo4j']['notify_restart']
 end
 
-# Template for /etc/neo4j/neo4j.properties
-template '/etc/neo4j/neo4j-wrapper.conf' do
-  action :create
+# Template for /etc/neo4j/neo4j-wrapper.conf
+template ::File.join(node['neo4j']['conf_dir'], 'neo4j-wrapper.conf') do
   source 'neo4j-wrapper.conf.erb'
-  owner 'neo4j'
-  group 'adm'
+  owner node['neo4j']['user']
+  group node['neo4j']['group']
   mode '0644'
-  backup 1
-  notifies :restart, 'service[neo4j-service]', :delayed
+  backup node['neo4j']['chef_backup']
+  variables(:config => node['neo4j']['config']['neo4j-wrapper.conf'])
+  notifies :restart, 'service[neo4j]', :delayed if node['neo4j']['notify_restart']
 end
+
+# Template for /etc/neo4j/logging.properties
+template ::File.join(node['neo4j']['conf_dir'], 'logging.properties') do
+  source 'logging.properties.erb'
+  owner node['neo4j']['user']
+  group node['neo4j']['group']
+  mode '0644'
+  variables(:config => node['neo4j']['config']['logging.properties'])
+  notifies :restart, 'service[neo4j]', :delayed if node['neo4j']['notify_restart']
+end
+
+include_recipe 'neo4j::service'

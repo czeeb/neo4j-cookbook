@@ -1,68 +1,62 @@
-default['java']['install_flavor'] = 'oracle'
-default['java']['jdk_version'] = 7
-default['java']['oracle']['accept_oracle_download_terms'] = true
 
-default['neo4j']['release'] = '2.2.3'
+default['neo4j']['release'] = '2.2.4'
+default['neo4j']['release_suffix'] = node['platform_family'] == 'rhel' ? '-1' : ''
+default['neo4j']['edition'] = 'community' # options: community, enterprise
+default['neo4j']['install_java']    = true
+default['neo4j']['install_method']  = 'package' # options: package, tarball
+default['neo4j']['package'] = node['neo4j']['edition'] == 'community' ? 'neo4j' : 'neo4j-' + node['neo4j']['edition']
 
-# neo4j-server.properties
-default['neo4j']['neo4j-server.properties']['org.neo4j.server.database.location'] = 'data/graph.db'
-default['neo4j']['neo4j-server.properties']['org.neo4j.server.db.tuning.properties'] = 'conf/neo4j.properties'
-default['neo4j']['neo4j-server.properties']['org.neo4j.server.webserver.address'] = 'localhost'
-default['neo4j']['neo4j-server.properties']['dbms.security.auth_enabled'] = true
-default['neo4j']['neo4j-server.properties']['org.neo4j.server.webserver.port'] = 7474
-default['neo4j']['neo4j-server.properties']['org.neo4j.server.webserver.https.enabled'] = true
-default['neo4j']['neo4j-server.properties']['org.neo4j.server.https.port'] = 7473
-default['neo4j']['neo4j-server.properties']['org.neo4j.server.webserver.https.cert.location'] = 'conf/ssl/snakeoil.cert'
-default['neo4j']['neo4j-server.properties']['org.neo4j.server.webserver.https.key.location'] = 'conf/ssl/snakeoil.key'
-default['neo4j']['neo4j-server.properties']['org.neo4j.server.webserver.https.keystore.location'] = 'data/keystore'
-default['neo4j']['neo4j-server.properties']['org.neo4j.server.http.log.enabled'] = false
-default['neo4j']['neo4j-server.properties']['org.neo4j.server.http.log.config'] = 'conf/neo4j-http-logging.xml'
-default['neo4j']['neo4j-server.properties']['org.neo4j.server.webadmin.rrdb.location'] = 'data/rrd'
+# tarball sources
+default['neo4j']['tarball_url'] = "http://neo4j.com/artifact.php?name=neo4j-#{node['neo4j']['edition']}-#{node['neo4j']['release']}-unix.tar.gz"
+default['neo4j']['tarball_checksum']['2.2.4']['community']  = 'b3fa5d547e50c3f619e39290266979e72f7222be7644fbb3bad2fc31d074aab9'
+default['neo4j']['tarball_checksum']['2.2.4']['enterprise'] = 'fc75a9cb161e9704ee0059e828f135637e17493328a783d979f3d6ead7fd86bf'
 
-# neo4j.properties
-default['neo4j']['neo4j.properties']['allow_store_upgrade'] = nil
-default['neo4j']['neo4j.properties']['dbms.pagecache.memory'] = nil
-default['neo4j']['neo4j.properties']['cypher_parser_version'] = nil
-default['neo4j']['neo4j.properties']['keep_logical_logs'] = '7 days'
-default['neo4j']['neo4j.properties']['node_auto_indexing'] = nil
-default['neo4j']['neo4j.properties']['node_keys_indexable'] = nil
-default['neo4j']['neo4j.properties']['relationship_auto_indexing'] = nil
-default['neo4j']['neo4j.properties']['relationship_keys_indexable'] = nil
-default['neo4j']['neo4j.properties']['remote_shell_enabled'] = false
-default['neo4j']['neo4j.properties']['remote_shell_host'] = '127.0.0.1'
-default['neo4j']['neo4j.properties']['remote_shell_port'] = 1337
-default['neo4j']['neo4j.properties']['cache_type'] = nil
-default['neo4j']['neo4j.properties']['allow_file_urls'] = true
-default['neo4j']['neo4j.properties']['dbms.cypher.min_replan_interval'] = nil
-default['neo4j']['neo4j.properties']['dbms.cypher.planner'] = nil
-default['neo4j']['neo4j.properties']['dbms.querylog.enabled'] = false
-default['neo4j']['neo4j.properties']['dbms.querylog.filename'] = nil
-default['neo4j']['neo4j.properties']['dbms.querylog.threshold'] = nil
-default['neo4j']['neo4j.properties']['dense_node_threshold'] = nil
-default['neo4j']['neo4j.properties']['dump_configuration'] = nil
-default['neo4j']['neo4j.properties']['index_background_sampling_enabled'] = nil
-default['neo4j']['neo4j.properties']['index_sampling_buffer_size'] = nil
-default['neo4j']['neo4j.properties']['index_sampling_update_percentage'] = nil
-default['neo4j']['neo4j.properties']['logical_log_rotation_threshold'] = nil
-default['neo4j']['neo4j.properties']['lucene_searcher_cache_size'] = nil
-default['neo4j']['neo4j.properties']['query_cache_size'] = nil
-default['neo4j']['neo4j.properties']['read_only'] = nil
-default['neo4j']['neo4j.properties']['relationship_grab_size'] = nil
-default['neo4j']['neo4j.properties']['remote_logging_enabled'] = nil
-default['neo4j']['neo4j.properties']['remote_logging_host'] = nil
-default['neo4j']['neo4j.properties']['remote_logging_port'] = nil
-default['neo4j']['neo4j.properties']['store_dir'] = nil
+# tarball install directory locations
+default['neo4j']['parent_dir']  = '/usr/local/neo4j'
+default['neo4j']['install_dir'] = ::File.join(node['neo4j']['parent_dir'], 'neo4j')
+default['neo4j']['source_dir']  = ::File.join(node['neo4j']['parent_dir'], "neo4j-#{node['neo4j']['edition']}-#{node['neo4j']['release']}")
 
-# neo4j-wrapper.conf
-default['neo4j']['neo4j-wrapper.conf']['wrapper.java.additional'] = %w(
-  -Dorg.neo4j.server.properties=conf/neo4j-server.properties
-  -Djava.util.logging.config.file=conf/logging.properties
-  -XX:+UseConcMarkSweepGC
-  -XX:+CMSClassUnloadingEnabled
-  -XX:-OmitStackTraceInFastThrow
-  -XX:hashCode=5
-  -Dneo4j.ext.udc.source=debian
+default['neo4j']['service_action'] = [:enable, :start]
+default['neo4j']['notify_restart'] = true
+
+# cookbook for configuration files template resources
+default['neo4j']['cookbook'] = 'neo4j'
+
+default['neo4j']['chef_backup'] = 5
+
+default['neo4j']['user']        = 'neo4j'
+default['neo4j']['user_group']  = node['platform_family'] == 'rhel' ? 'neo4j' : 'nogroup'
+default['neo4j']['group']       = node['platform_family'] == 'rhel' ? 'neo4j' : 'adm'
+default['neo4j']['setup_user']  = true # for tarball install
+
+default['neo4j']['log_dir']   = '/var/log/neo4j'
+default['neo4j']['home_dir']  = case node['neo4j']['install_method']
+                                when 'package'
+                                  value_for_platform_family(
+                                    'debian' => '/var/lib/neo4j',
+                                    'rhel' => '/usr/share/neo4j'
+                                  )
+                                else
+                                  node['neo4j']['install_dir']
+                                end
+
+# this works for both package and tarball
+default['neo4j']['conf_dir'] = ::File.join(node['neo4j']['home_dir'], 'conf')
+default['neo4j']['data_dir'] = value_for_platform_family(
+  'debian' => ::File.join(node['neo4j']['home_dir'], 'data', 'graph.db'),
+  'rhel' => '/var/lib/neo4j'
 )
-default['neo4j']['neo4j-wrapper.conf']['wrapper.java.initmemory'] = nil
-default['neo4j']['neo4j-wrapper.conf']['wrapper.java.maxmemory'] = nil
-default['neo4j']['neo4j-wrapper.conf']['wrapper.pidfile'] = '../data/neo4j-server.pid'
+
+default['neo4j']['pid_file'] = ::File.join(node['neo4j']['home_dir'], 'data', 'neo4j-service.pid')
+default['neo4j']['auth_dir'] = ::File.join(node['neo4j']['home_dir'], 'data', 'dbms')
+default['neo4j']['auth_file'] = ::File.join(node['neo4j']['auth_dir'], 'auth')
+
+default['neo4j']['umask'] = '0022'
+default['neo4j']['mode']  = '0755'
+
+default['neo4j']['initd_file'] = value_for_platform_family(
+  'debian' => '/etc/init.d/neo4j-service',
+  'rhel' => '/etc/init.d/neo4j'
+)
+
+default['neo4j']['limits']['files'] = 48_000

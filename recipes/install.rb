@@ -17,13 +17,23 @@
 # limitations under the License.
 #
 
-apt_repository 'neo4j' do
-  uri 'http://debian.neo4j.org/repo'
-  components ['stable/']
-  key 'http://debian.neo4j.org/neotechnology.gpg.key'
-end
+fail "invalid value `#{node['neo4j']['install_method']}` for `node['neo4j']['install_method']`, valid are `package tarball`" unless %w(package tarball).include?(node['neo4j']['install_method'])
 
-package 'neo4j' do
-  action :install
-  version node['neo4j']['release']
+fail "invalid value `#{node['neo4j']['edition']}` for `node['neo4j']['edition']`, valid are `community enterprise`" unless %w(community enterprise).include?(node['neo4j']['edition'])
+
+include_recipe 'neo4j::java'
+
+# dir resources here
+include_recipe "neo4j::#{node['neo4j']['install_method']}"
+
+[node['neo4j']['log_dir'],
+ node['neo4j']['auth_dir'],
+ node['neo4j']['data_dir']
+].each do |dir|
+  directory dir do
+    owner node['neo4j']['user']
+    group node['neo4j']['group']
+    mode node['neo4j']['mode']
+    recursive true
+  end
 end

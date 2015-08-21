@@ -1,40 +1,19 @@
-# This file is managed by chef
+#
+# This configuration file is managed by chef
+# Do not edit by hand.  Your changes will be overwritten
+#
 #
 # Java wrapper.java.additional settings
-<% @node['neo4j']['neo4j-wrapper.conf']['wrapper.java.additional'].each do |java_additional| %>
-wrapper.java.additional=<%= java_additional %>
+
+<% Hash[@config.sort].each do |key, value| -%>
+<% if key -%>
+<% if key == 'wrapper.java.additional' -%>
+<% value.each do |o| -%>
+wrapper.java.additional=<%= o %>
 <% end -%>
-
-# Java Heap Size: by default the Java heap size is dynamically
-# calculated based on available system resources.
-# Uncomment these lines to set specific initial and maximum
-# heap size in MB.
-#wrapper.java.initmemory=512
-#wrapper.java.maxmemory=512
-<% if node['neo4j']['neo4j-wrapper.conf']['wrapper.java.initmemory'] %>
-wrapper.java.initmemory=<%= node['neo4j']['neo4j-wrapper.conf']['wrapper.java.initmemory'] %>
+<% elsif !value.nil? -%>
+<%= key %>=<%= value %>
 <% end -%>
-<% if node['neo4j']['neo4j-wrapper.conf']['wrapper.java.maxmemory'] %>
-wrapper.java.maxmemory=<%= node['neo4j']['neo4j-wrapper.conf']['wrapper.java.maxmemory'] %>
 <% end -%>
-
-#********************************************************************
-# Wrapper settings
-#********************************************************************
-# path is relative to the bin dir
-wrapper.pidfile=<%= node['neo4j']['neo4j-wrapper.conf']['wrapper.pidfile'] %>
-
-#********************************************************************
-# Wrapper Windows NT/2000/XP Service Properties
-#********************************************************************
-# WARNING - Do not modify any of these properties when an application
-#  using this configuration file has been installed as a service.
-#  Please uninstall the service before modifying this section.  The
-#  service can then be reinstalled.
-
-# Name of the service
-wrapper.name=neo4j
-
-# User account to be used for linux installs. Will default to current
-# user if not set.
-wrapper.user=
+<% end -%>
+wrapper.java.additional=-Dneo4j.ext.udc.source=<%= node['platform_family'] == 'rhel' ? 'rpm' : 'debian' %>
