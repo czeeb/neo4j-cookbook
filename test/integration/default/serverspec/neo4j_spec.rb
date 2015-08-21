@@ -7,12 +7,19 @@ describe 'neo4j' do
     it { should be_installed }
   end
 
-  if os[:family] == 'debian' && os[:release] == '8.1'
-    describe service('neo4j-service') do
-      it { should be_running }
+  if os[:family] == 'debian'
+    if os[:release] == '8.1'
+      describe service('neo4j-service') do
+        it { should be_running }
+      end
+    else
+      describe service('neo4j-service') do
+        it { should be_enabled }
+        it { should be_running }
+      end
     end
-  else
-    describe service('neo4j-service') do
+  elsif os[:family] == 'rhel'
+    describe service('neo4j') do
       it { should be_enabled }
       it { should be_running }
     end
