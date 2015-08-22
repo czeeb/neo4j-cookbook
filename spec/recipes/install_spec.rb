@@ -39,7 +39,7 @@ describe 'neo4j::install' do
     end
   end
 
-  it 'includes the neo4j::package recipe when  install_method = tarball' do
+  it 'includes the neo4j::tarball recipe when  install_method = tarball' do
     chef_run.node.set['neo4j']['install_method'] = 'tarball'
     chef_run.converge(described_recipe)
     expect(chef_run).to include_recipe('neo4j::tarball')
