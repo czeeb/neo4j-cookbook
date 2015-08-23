@@ -14,9 +14,11 @@ Platforms
 ---------
 The following platforms and versions are tested and supported using [test-kitchen](http://kitchen.ci/)
 
-* Debian 7.8, 8.1
-* Ubuntu 12.04, 14.04
 * Amazon Linux 2015-03
+* CentOS >= 6.5
+* Debian 7.8, 8.1
+* RHEL >= 6.5
+* Ubuntu 12.04, 14.04
 
 Attributes
 ----------
@@ -79,10 +81,10 @@ Wherever possible I use the default settings from Neo4j for the defaults in the 
 * `node['neo4j']['config']['neo4j.properties']['store_dir']` - The directory where the database files are located.
 
 ### neo4j-wrapper.conf
-* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.java.additional'] - Array of arguements to pass to java
-* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.java.initmemory'] - Set heap size
-* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.java.maxmemory'] - Set heap size maximum
-* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.pidfile'] - Set pidfile
+* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.java.additional']` - Array of arguements to pass to java
+* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.java.initmemory']` - Set heap size
+* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.java.maxmemory']` - Set heap size maximum
+* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.pidfile']` - Set pidfile
 
 Usage
 -----
