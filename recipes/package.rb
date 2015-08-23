@@ -18,7 +18,8 @@
 #
 
 case node['platform_family']
-when 'debian'
+  when 'debian'
+  include_recipe 'apt'
   # apt repository configuration
   apt_repository 'neo4j' do
     uri node['neo4j']['apt']['uri']
@@ -26,7 +27,7 @@ when 'debian'
     key node['neo4j']['apt']['key']
     action node['neo4j']['apt']['action']
   end
-when 'rhel'
+  when 'rhel'
   # yum repository configuration
   yum_repository 'neo4j' do
     description node['neo4j']['yum']['description']
