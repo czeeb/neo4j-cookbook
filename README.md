@@ -2,23 +2,49 @@ neo4j Cookbook
 ==============
 [![Build Status](https://travis-ci.org/czeeb/neo4j-cookbook.svg?branch=master)](https://travis-ci.org/czeeb/neo4j-cookbook)
 [![Dependency Status](https://gemnasium.com/czeeb/neo4j-cookbook.svg)](https://gemnasium.com/czeeb/neo4j-cookbook)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/czeeb/neo4j-cookbook?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+<<<<<<< HEAD
+This cookbook installs and configures neo4j.
+=======
 This is a [Chef] cookbook to manage [Neo4j] (Community & Enterprise Edition).
+>>>>>>> master
 
 Platforms
 ---------
 The following platforms and versions are tested and supported using [test-kitchen](http://kitchen.ci/)
 
+* CentOS 6.6, 7.1
 * Debian 7.8, 8.1
 * Ubuntu 12.04, 14.04
+
+Other versions that should work fine but are not testing in [test-kitchen].
 * Amazon Linux 2015-03
+* RHEL >= 6.6
 
 Attributes
 ----------
 
 Wherever possible I use the default settings from Neo4j for the defaults in the attributes file.
 
-* `node['neo4j']['release'] - Package version to install
+* `node['neo4j']['release']` - Package version to install
+* `node['neo4j']['release_suffix']` - If the release version requires a suffix, add it here. Such as `2.2.4-1` set it to '-1'
+* `node['neo4j']['edition']` - Valid values are `community` and `enterprise`
+* `node['neo4j']['install_java']` - Boolean for if the neo4j cookbook should install java. Default: `true`
+* `node['neo4j']['install_method']` - Valid values are `package` or `tarball`
+* `node['neo4j']['package']` - Name of package to install.  You shouldn't need to change this
+* `node['neo4j']['service_action']` - Action to set neo4j service to.  Type: Array
+* `node['neo4j']['notify_restart']` - Type: Boolean.  If template updates should notify the neo4j service to restart or not
+* `node['neo4j']['cookbook']` - The cookbook used for configuration file template resources
+* `node['neo4j']['chef_backup']` - Type: Integer.  Number of backups to keep for template resources
+
+### Tarball installation method specific attributes
+
+* `node['neo4j']['tarball_url']` - URL used to download neo4j tarball
+* `node['neo4j']['tarball_checksum'][<version>][<edition>]` - Checksum used to verify tarball download
+* `node['neo4j']['parent_dir']` - Parent directory used
+* `node['neo4j']['install_dir']` - Directory that neo4j is installed into
+* `node['neo4j']['source_dir']` - Directory used to explode the tarball into
 
 ### neo4j-server.properties
 
@@ -74,10 +100,10 @@ Wherever possible I use the default settings from Neo4j for the defaults in the 
 * `node['neo4j']['config']['neo4j.properties']['store_dir']` - The directory where the database files are located.
 
 ### neo4j-wrapper.conf
-* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.java.additional'] - Array of arguements to pass to java
-* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.java.initmemory'] - Set heap size
-* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.java.maxmemory'] - Set heap size maximum
-* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.pidfile'] - Set pidfile
+* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.java.additional']` - Array of arguements to pass to java
+* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.java.initmemory']` - Set heap size
+* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.java.maxmemory']` - Set heap size maximum
+* `node['neo4j']['config']['neo4j-wrapper.conf']['wrapper.pidfile']` - Set pidfile
 
 Usage
 -----
@@ -97,13 +123,12 @@ Just include `neo4j` in your node's `run_list`:
 
 Contributing
 ------------
-e.g.
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write your change
 4. Write tests for your change (if applicable)
 5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
+6. Submit a Pull Request using Github to the development branch
 
 License and Authors
 -------------------

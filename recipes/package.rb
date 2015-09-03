@@ -19,6 +19,7 @@
 
 case node['platform_family']
 when 'debian'
+  include_recipe 'apt'
   # apt repository configuration
   apt_repository 'neo4j' do
     uri node['neo4j']['apt']['uri']
