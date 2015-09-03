@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the neo4j cookbook.
 
-## Unreleased
+## 1.0.0 / 2015-09-03
 
 ### Added
 * Package install support for `rhel` platform family
@@ -16,6 +16,7 @@ This file is used to list changes made in each version of the neo4j cookbook.
 * Resources for core directory locations
 
 ### Changed
+* default version installed updated from 2.2.3 to 2.2.4
 * `java` setup optional
 * Move `configuration` files attributes to `default['neo4j']['config']['...']`
 * Render `configuration` files attributes instead of managing individual parameters
