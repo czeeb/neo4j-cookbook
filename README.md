@@ -4,11 +4,7 @@ neo4j Cookbook
 [![Dependency Status](https://gemnasium.com/czeeb/neo4j-cookbook.svg)](https://gemnasium.com/czeeb/neo4j-cookbook)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/czeeb/neo4j-cookbook?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-<<<<<<< HEAD
-This cookbook installs and configures neo4j.
-=======
 This is a [Chef] cookbook to manage [Neo4j] (Community & Enterprise Edition).
->>>>>>> master
 
 Platforms
 ---------
