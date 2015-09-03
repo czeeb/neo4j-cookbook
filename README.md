@@ -14,11 +14,13 @@ Platforms
 ---------
 The following platforms and versions are tested and supported using [test-kitchen](http://kitchen.ci/)
 
-* Amazon Linux 2015-03
-* CentOS >= 6.5
+* CentOS 6.6, 7.1
 * Debian 7.8, 8.1
-* RHEL >= 6.5
 * Ubuntu 12.04, 14.04
+
+Other versions that should work fine but are not testing in [test-kitchen].
+* Amazon Linux 2015-03
+* RHEL >= 6.6
 
 Attributes
 ----------
@@ -26,6 +28,23 @@ Attributes
 Wherever possible I use the default settings from Neo4j for the defaults in the attributes file.
 
 * `node['neo4j']['release']` - Package version to install
+* `node['neo4j']['release_suffix']` - If the release version requires a suffix, add it here. Such as `2.2.4-1` set it to '-1'
+* `node['neo4j']['edition']` - Valid values are `community` and `enterprise`
+* `node['neo4j']['install_java']` - Boolean for if the neo4j cookbook should install java. Default: `true`
+* `node['neo4j']['install_method']` - Valid values are `package` or `tarball`
+* `node['neo4j']['package']` - Name of package to install.  You shouldn't need to change this
+* `node['neo4j']['service_action']` - Action to set neo4j service to.  Type: Array
+* `node['neo4j']['notify_restart']` - Type: Boolean.  If template updates should notify the neo4j service to restart or not
+* `node['neo4j']['cookbook']` - The cookbook used for configuration file template resources
+* `node['neo4j']['chef_backup']` - Type: Integer.  Number of backups to keep for template resources
+
+### Tarball installation method specific attributes
+
+* `node['neo4j']['tarball_url']` - URL used to download neo4j tarball
+* `node['neo4j']['tarball_checksum'][<version>][<edition>]` - Checksum used to verify tarball download
+* `node['neo4j']['parent_dir']` - Parent directory used
+* `node['neo4j']['install_dir']` - Directory that neo4j is installed into
+* `node['neo4j']['source_dir']` - Directory used to explode the tarball into
 
 ### neo4j-server.properties
 
