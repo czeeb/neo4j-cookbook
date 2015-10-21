@@ -11,6 +11,6 @@ group :development do
   gem 'guard-foodcritic'
   gem 'guard-rspec'
   gem 'guard-rubocop'
-  gem 'kitchen-vagrant', '~> 0.15.0'
+  gem 'kitchen-vagrant', '~> 0.19.0'
   gem 'test-kitchen'
 end
