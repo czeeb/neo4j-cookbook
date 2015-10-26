@@ -11,6 +11,12 @@ default['neo4j']['tarball_url'] = "http://neo4j.com/artifact.php?name=neo4j-#{no
 default['neo4j']['tarball_checksum']['2.2.4']['community']  = 'b3fa5d547e50c3f619e39290266979e72f7222be7644fbb3bad2fc31d074aab9'
 default['neo4j']['tarball_checksum']['2.2.4']['enterprise'] = 'fc75a9cb161e9704ee0059e828f135637e17493328a783d979f3d6ead7fd86bf'
 
+default['neo4j']['tarball_checksum']['2.2.5']['community'] = '7fadc119f465a3d6adceb610401363fb158a5ed25081f9893d4f56ac4989a998'
+default['neo4j']['tarball_checksum']['2.2.5']['enterprise'] = 'c7ddd390ddd5d2ac347c505e83f7a2707abda8b7e92f70b1f2f8d4d53f68f7af'
+
+default['neo4j']['tarball_checksum']['2.2.6']['community'] = '77f8371318c843bdd8fbd5f95be95e9a1467bb84030d4a3ff9dcec805b4003b9'
+default['neo4j']['tarball_checksum']['2.2.6']['enterprise'] = '73c55c5a5f69fe4bc3d93c8df88c8001d3d474bfe7e4eacb3e680c99d33ef407'
+
 # tarball install directory locations
 default['neo4j']['parent_dir']  = '/usr/local/neo4j'
 default['neo4j']['install_dir'] = ::File.join(node['neo4j']['parent_dir'], 'neo4j')
