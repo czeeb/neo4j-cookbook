@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the neo4j cookbook.
 
-## 1.0.2 / Unreleased
+## 1.0.2 / 2015-10-26
 
 ### Added
 * sha256 hashes for 2.2.5, 2.2.6, and 2.3.0 releases

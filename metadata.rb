@@ -5,7 +5,7 @@ license          'Apache 2.0'
 description      'Installs/Configures neo4j'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 issues_url       'https://github.com/czeeb/neo4j-cookbook/issues'
-version          '1.0.1'
+version          '1.0.2'
 
 supports 'amazon'
 supports 'centos', '>= 6.6'
