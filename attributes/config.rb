@@ -12,8 +12,8 @@ default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webserve
 default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.http.log.enabled'] = false
 default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.http.log.config'] = 'conf/neo4j-http-logging.xml'
 default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webadmin.rrdb.location'] = 'data/rrd'
-default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webserver.max.request.header']= nil
-default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webserver.max.response.header']= nil
+default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webserver.max.request.header'] = nil
+default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webserver.max.response.header'] = nil
 
 # neo4j.properties
 default['neo4j']['config']['neo4j.properties']['allow_store_upgrade'] = nil
