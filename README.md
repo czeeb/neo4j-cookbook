@@ -18,6 +18,11 @@ Other versions that should work fine but are not testing in [test-kitchen].
 * Amazon Linux 2015-03
 * RHEL >= 6.6
 
+Java Attributes
+---------------
+
+This cookbook uses the (java)[https://supermarket.chef.io/cookbooks/java] cookbook to install java.  A (wrapper cookbook)[https://www.chef.io/blog/2013/12/03/doing-wrapper-cookbooks-right/] can be used to change the default behaviour and install other flavours of the JDK and/or different versions.
+
 Attributes
 ----------
 
@@ -57,6 +62,8 @@ Wherever possible I use the default settings from Neo4j for the defaults in the 
 * `node['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.http.log.enabled']` - enable/disable http logging
 * `node['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.http.log.config']` - http logging config
 * `node['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webadmin.rrdb.location']` - location of rrd database directory
+* `node['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webserver.max.request.header']` - Set maximum request header size. Introduced in 2.3.0.
+* `node['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webserver.max.response.header']` -  Set maximum reqponse header size.  Introduced in 2.3.0.
 
 ### neo4j-server.properties
 
@@ -73,13 +80,15 @@ Wherever possible I use the default settings from Neo4j for the defaults in the 
 * `node['neo4j']['config']['neo4j.properties']['remote_shell_enabled']` - Enable shell server so that remote clients can connect via Neo4j shell
 * `node['neo4j']['config']['neo4j.properties']['remote_shell_host']` - The network interface IP the shell will listen on (use 0.0.0 for all interfaces)
 * `node['neo4j']['config']['neo4j.properties']['remote_shell_port']` - The port the shell will listen on
-* `node['neo4j']['config']['neo4j.properties']['cache_type']` - The type of cache to use for nodes and relationships.
+* `node['neo4j']['config']['neo4j.properties']['cache_type']` - The type of cache to use for nodes and relationships. Depreciated in 2.3.0.
 * `node['neo4j']['config']['neo4j.properties']['allow_file_urls']` - Determines if Cypher will allow using file URLs when loading data using LOAD CSV
 * `node['neo4j']['config']['neo4j.properties']['dbms.cypher.min_replan_interval']` - The minimum lifetime of a query plan before a query is considered for replanning.
 * `node['neo4j']['config']['neo4j.properties']['dbms.cypher.planner']` - Set this to specify the default planner.
 * `node['neo4j']['config']['neo4j.properties']['dbms.querylog.enabled']` - Log executed queries that takes longer than the configured threshold.
 * `node['neo4j']['config']['neo4j.properties']['dbms.querylog.filename']` - The file where queries will be recorded.
 * `node['neo4j']['config']['neo4j.properties']['dbms.querylog.threshold']` - If the execution of query takes more time than this threshold, the query is logged - provided query logging is enabled.
+* `node['neo4j']['config']['neo4j.properties']['dbms.querylog.rotation.threshold']` - Specifies maximum number of history files to keep. Introduced in 2.3.0.
+* `node['neo4j']['config']['neo4j.properties']['dbms.querylog.rotation.threshold']` - Specifies at which file size the query log will autorotate.  Introduced in 2.2.6.
 * `node['neo4j']['config']['neo4j.properties']['dense_node_threshold']` - Relationship count threshold for considering a node to be dense.
 * `node['neo4j']['config']['neo4j.properties']['dump_configuration']` - Print out the effective Neo4j configuration after startup.
 * `node['neo4j']['config']['neo4j.properties']['index_background_sampling_enabled']` - Enable or disable background index sampling.

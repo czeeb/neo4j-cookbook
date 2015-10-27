@@ -12,6 +12,8 @@ default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webserve
 default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.http.log.enabled'] = false
 default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.http.log.config'] = 'conf/neo4j-http-logging.xml'
 default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webadmin.rrdb.location'] = 'data/rrd'
+default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webserver.max.request.header'] = nil
+default['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webserver.max.response.header'] = nil
 
 # neo4j.properties
 default['neo4j']['config']['neo4j.properties']['allow_store_upgrade'] = nil
@@ -32,6 +34,8 @@ default['neo4j']['config']['neo4j.properties']['dbms.cypher.planner'] = nil
 default['neo4j']['config']['neo4j.properties']['dbms.querylog.enabled'] = false
 default['neo4j']['config']['neo4j.properties']['dbms.querylog.filename'] = nil
 default['neo4j']['config']['neo4j.properties']['dbms.querylog.threshold'] = nil
+default['neo4j']['config']['neo4j.properties']['dbms.querylog.max_archives'] = nil
+default['neo4j']['config']['neo4j.properties']['dbms.querylog.rotation.threshold'] = nil
 default['neo4j']['config']['neo4j.properties']['dense_node_threshold'] = nil
 default['neo4j']['config']['neo4j.properties']['dump_configuration'] = nil
 default['neo4j']['config']['neo4j.properties']['index_background_sampling_enabled'] = nil

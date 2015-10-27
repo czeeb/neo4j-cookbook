@@ -37,3 +37,9 @@ suites:
       neo4j:
         install_method: tarball
         edition: enterprise
+  - name: latest-default
+    run_list:
+      - recipe[neo4j::default]
+    attributes:
+      neo4j:
+        release: '2.3.0'
