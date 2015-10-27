@@ -32,6 +32,7 @@ default['neo4j']['config']['neo4j.properties']['dbms.cypher.planner'] = nil
 default['neo4j']['config']['neo4j.properties']['dbms.querylog.enabled'] = false
 default['neo4j']['config']['neo4j.properties']['dbms.querylog.filename'] = nil
 default['neo4j']['config']['neo4j.properties']['dbms.querylog.threshold'] = nil
+default['neo4j']['config']['neo4j.properties']['dbms.querylog.rotation.threshold'] = nil
 default['neo4j']['config']['neo4j.properties']['dense_node_threshold'] = nil
 default['neo4j']['config']['neo4j.properties']['dump_configuration'] = nil
 default['neo4j']['config']['neo4j.properties']['index_background_sampling_enabled'] = nil

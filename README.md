@@ -80,6 +80,7 @@ Wherever possible I use the default settings from Neo4j for the defaults in the 
 * `node['neo4j']['config']['neo4j.properties']['dbms.querylog.enabled']` - Log executed queries that takes longer than the configured threshold.
 * `node['neo4j']['config']['neo4j.properties']['dbms.querylog.filename']` - The file where queries will be recorded.
 * `node['neo4j']['config']['neo4j.properties']['dbms.querylog.threshold']` - If the execution of query takes more time than this threshold, the query is logged - provided query logging is enabled.
+* `node['neo4j']['config']['neo4j.properties']['dbms.querylog.rotation.threshold']` - Specifies at which file size the query log will autorotate.  Introduced in 2.2.6.
 * `node['neo4j']['config']['neo4j.properties']['dense_node_threshold']` - Relationship count threshold for considering a node to be dense.
 * `node['neo4j']['config']['neo4j.properties']['dump_configuration']` - Print out the effective Neo4j configuration after startup.
 * `node['neo4j']['config']['neo4j.properties']['index_background_sampling_enabled']` - Enable or disable background index sampling.
