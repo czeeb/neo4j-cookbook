@@ -57,6 +57,8 @@ Wherever possible I use the default settings from Neo4j for the defaults in the 
 * `node['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.http.log.enabled']` - enable/disable http logging
 * `node['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.http.log.config']` - http logging config
 * `node['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webadmin.rrdb.location']` - location of rrd database directory
+* `node['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webserver.max.request.header']` - Set maximum request header size. Introduced in 2.3.0.
+* `node['neo4j']['config']['neo4j-server.properties']['org.neo4j.server.webserver.max.response.header']` -  Set maximum reqponse header size.  Introduced in 2.3.0.
 
 ### neo4j-server.properties
 
@@ -80,6 +82,7 @@ Wherever possible I use the default settings from Neo4j for the defaults in the 
 * `node['neo4j']['config']['neo4j.properties']['dbms.querylog.enabled']` - Log executed queries that takes longer than the configured threshold.
 * `node['neo4j']['config']['neo4j.properties']['dbms.querylog.filename']` - The file where queries will be recorded.
 * `node['neo4j']['config']['neo4j.properties']['dbms.querylog.threshold']` - If the execution of query takes more time than this threshold, the query is logged - provided query logging is enabled.
+* `node['neo4j']['config']['neo4j.properties']['dbms.querylog.rotation.threshold']` - Specifies maximum number of history files to keep. Introduced in 2.3.0.
 * `node['neo4j']['config']['neo4j.properties']['dbms.querylog.rotation.threshold']` - Specifies at which file size the query log will autorotate.  Introduced in 2.2.6.
 * `node['neo4j']['config']['neo4j.properties']['dense_node_threshold']` - Relationship count threshold for considering a node to be dense.
 * `node['neo4j']['config']['neo4j.properties']['dump_configuration']` - Print out the effective Neo4j configuration after startup.

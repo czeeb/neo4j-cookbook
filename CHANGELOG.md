@@ -5,8 +5,8 @@ This file is used to list changes made in each version of the neo4j cookbook.
 ## 1.0.2 / Unreleased
 
 ### Added
-* sha256 hashes for 2.2.5 and 2.2.6 releases
-* dbms.querylog.rotation.threshold attribute and README documentation
+* sha256 hashes for 2.2.5, 2.2.6, and 2.3.0 releases
+* New configuration options introduced in 2.2.6 and 2.3.0 releases
 
 ## 1.0.1 / 2015-09-03
 
