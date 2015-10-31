@@ -43,3 +43,8 @@ suites:
     attributes:
       neo4j:
         release: '2.3.0'
+  - name: chef11-default
+    run_list:
+      - recipe[neo4j::default]
+    provisioner:
+      require_chef_omnibus: "11.10"
