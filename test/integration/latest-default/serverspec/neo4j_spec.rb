@@ -3,10 +3,6 @@ require 'serverspec'
 set :backend, :exec
 
 describe 'neo4j' do
-  describe package('neo4j') do
-    it { should be_installed }
-  end
-
   if os[:family] == 'debian'
     if os[:release] == '8.1'
       describe service('neo4j-service') do
