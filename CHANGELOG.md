@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the neo4j cookbook.
 
-## 1.0.3 / Unreleased
+## 1.0.3 / 2015-11-26
 
 ### Added
 * Tests for Chef 11.10, the version of Chef that AWS Opsworks uses

@@ -6,7 +6,7 @@ description      'Installs/Configures neo4j'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 issues_url       'https://github.com/czeeb/neo4j-cookbook/issues' if respond_to?(:issues_url)
 source_url       'https://github.com/czeeb/neo4j-cookbook' if respond_to?(:source_url)
-version          '1.0.2'
+version          '1.0.3'
 
 supports 'amazon'
 supports 'centos', '>= 6.6'
