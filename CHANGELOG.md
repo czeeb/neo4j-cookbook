@@ -2,6 +2,16 @@
 
 This file is used to list changes made in each version of the neo4j cookbook.
 
+## 1.0.3 / 2015-11-26
+
+### Added
+* Tests for Chef 11.10, the version of Chef that AWS Opsworks uses
+* sha256 hashes for 2.2.7, and 2.3.1 releases
+
+### Changed
+* Updated Gemfile.lock
+* Test Kitchen for latest release changed to tarball from package installation method so that new hashes can more easily be tested
+
 ## 1.0.2 / 2015-10-26
 
 ### Added

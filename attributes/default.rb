@@ -17,8 +17,14 @@ default['neo4j']['tarball_checksum']['2.2.5']['enterprise'] = 'c7ddd390ddd5d2ac3
 default['neo4j']['tarball_checksum']['2.2.6']['community'] = '77f8371318c843bdd8fbd5f95be95e9a1467bb84030d4a3ff9dcec805b4003b9'
 default['neo4j']['tarball_checksum']['2.2.6']['enterprise'] = '73c55c5a5f69fe4bc3d93c8df88c8001d3d474bfe7e4eacb3e680c99d33ef407'
 
+default['neo4j']['tarball_checksum']['2.2.7']['community'] = '79d96471a5e8aa08ae2a7d78b0a2ff6d587fe13125205a9a4dc9705766e1cd25'
+default['neo4j']['tarball_checksum']['2.2.7']['enterprise'] = '13de7a0cbc1205bbeeb0e1ffa0797ded8f9da6304953f0339f4512b34ee8284e'
+
 default['neo4j']['tarball_checksum']['2.3.0']['community'] = '88fee93884700dae6a1f870dd84b3da9d094db33d57db1c88904954ef2cb4830'
 default['neo4j']['tarball_checksum']['2.3.0']['enterprise'] = '0d3f370f8141d8bc37065f843af190c405cba098d1bb82065ffc0cb5b99950b7'
+
+default['neo4j']['tarball_checksum']['2.3.1']['community'] = '7b2f30d73af107eacd9a3a619475ef448a08eecb2cdb42ab1f8a38d091c70ecb'
+default['neo4j']['tarball_checksum']['2.3.1']['enterprise'] = '93f0950b0c3a5a604f80183814b7cda2988a652e9278159c47d036daa96e3d29s'
 
 # tarball install directory locations
 default['neo4j']['parent_dir']  = '/usr/local/neo4j'
