@@ -21,7 +21,7 @@ Other versions that should work fine but are not testing in [test-kitchen].
 Java Attributes
 ---------------
 
-This cookbook uses the (java)[https://supermarket.chef.io/cookbooks/java] cookbook to install java.  A (wrapper cookbook)[https://www.chef.io/blog/2013/12/03/doing-wrapper-cookbooks-right/] can be used to change the default behaviour and install other flavours of the JDK and/or different versions.
+This cookbook uses the [java](https://supermarket.chef.io/cookbooks/java) cookbook to install java.  A [wrapper cookbook](https://www.chef.io/blog/2013/12/03/doing-wrapper-cookbooks-right/) can be used to change the default behaviour and install other flavours of the JDK and/or different versions.
 
 Attributes
 ----------
