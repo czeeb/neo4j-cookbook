@@ -6,6 +6,7 @@ This file is used to list changes made in each version of the neo4j cookbook.
 
 ### Fixed
 * Version constraints for cookbook dependencies loosened to make them play nice with other cookbook dependencies.
+* Package lsof not always existing on EPEL installs.  It is required by the tarball installation.
 
 ## 1.0.3 / 2015-11-26
 

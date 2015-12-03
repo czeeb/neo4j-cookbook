@@ -27,9 +27,14 @@ describe 'neo4j::tarball' do
     expect(chef_run).to create_link('/usr/local/neo4j/neo4j')
   end
 
+  # The lsof package test needs to be in each context to get counted towards code coverage
   context 'rhel' do
     let(:chef_run) do
       ChefSpec::SoloRunner.new(platform: 'centos', version: '6.5').converge(described_recipe)
+    end
+
+    it 'installs the lsof package' do
+      expect(chef_run).to install_package('lsof')
     end
 
     it 'creates neo4j service template' do
@@ -40,6 +45,10 @@ describe 'neo4j::tarball' do
   context 'ubuntu' do
     let(:chef_run) do
       ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '12.04').converge(described_recipe)
+    end
+
+    it 'installs the lsof package' do
+      expect(chef_run).to install_package('lsof')
     end
 
     it 'creates neo4j service template' do

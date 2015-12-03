@@ -38,6 +38,11 @@ service 'neo4j' do
   only_if { ::File.exist?(node['neo4j']['initd_file']) && !File.exist?(node['neo4j']['source_dir']) }
 end
 
+# bin/neo4j requires lsof which isn't always installed
+package 'lsof' do
+  action :install
+end
+
 # download tarball
 remote_file tarball_file do
   source node['neo4j']['tarball_url']
