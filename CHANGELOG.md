@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the neo4j cookbook.
 
+## 1.0.4 / 2015-12-02
+
+### Fixed
+* Version constraints for cookbook dependencies loosened to make them play nice with other cookbook dependencies.
+
 ## 1.0.3 / 2015-11-26
 
 ### Added
