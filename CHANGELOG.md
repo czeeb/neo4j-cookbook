@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the neo4j cookbook.
 
+## 1.0.5 / Unreleased
+
+### Changed
+* Updated Gemfile.lock
+
 ## 1.0.4 / 2015-12-02
 
 ### Fixed
