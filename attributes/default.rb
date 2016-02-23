@@ -26,6 +26,9 @@ default['neo4j']['tarball_checksum']['2.3.0']['enterprise'] = '0d3f370f8141d8bc3
 default['neo4j']['tarball_checksum']['2.3.1']['community'] = '7b2f30d73af107eacd9a3a619475ef448a08eecb2cdb42ab1f8a38d091c70ecb'
 default['neo4j']['tarball_checksum']['2.3.1']['enterprise'] = '93f0950b0c3a5a604f80183814b7cda2988a652e9278159c47d036daa96e3d29s'
 
+default['neo4j']['tarball_checksum']['2.3.2']['community'] = '37e24d95c914c54d5cbbe99473d4beef89da78adb2db04eb87258a489225932a'
+default['neo4j']['tarball_checksum']['2.3.2']['enterprise'] = 'ea80cfca918dd70ea5d10a125f5c3a5be02e45dd497b67dfa2d22770a891acea'
+
 # tarball install directory locations
 default['neo4j']['parent_dir']  = '/usr/local/neo4j'
 default['neo4j']['install_dir'] = ::File.join(node['neo4j']['parent_dir'], 'neo4j')
