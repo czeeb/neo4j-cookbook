@@ -43,7 +43,7 @@ suites:
     attributes:
       neo4j:
         install_method: tarball
-        release: '2.3.1'
+        release: '2.3.2'
   - name: chef11-default
     run_list:
       - recipe[neo4j::default]

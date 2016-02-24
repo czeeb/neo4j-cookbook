@@ -2,6 +2,15 @@
 
 This file is used to list changes made in each version of the neo4j cookbook.
 
+## 1.0.5 / 2016-02-23
+
+### Added
+* sha256 hashes for 2.3.2 release
+
+### Changed
+* Updated Gemfile.lock
+* Fixed rubocop violations
+
 ## 1.0.4 / 2015-12-02
 
 ### Fixed
