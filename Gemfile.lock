@@ -39,7 +39,7 @@ GEM
     celluloid-io (0.16.2)
       celluloid (>= 0.16.0)
       nio4r (>= 1.1.0)
-    chef (12.8.1)
+    chef (12.7.2)
       bundler (>= 1.10)
       chef-config (= 12.8.1)
       chef-zero (~> 4.5)
