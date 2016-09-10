@@ -23,6 +23,7 @@ when 'debian'
   # apt repository configuration
   apt_repository 'neo4j' do
     uri node['neo4j']['apt']['uri']
+    distribution node['neo4j']['apt']['distribution']
     components node['neo4j']['apt']['components']
     key node['neo4j']['apt']['key']
     action node['neo4j']['apt']['action']
