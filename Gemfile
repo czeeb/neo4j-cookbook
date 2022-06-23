@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 gem 'berkshelf'
 gem 'chefspec'
-gem 'rake'
+gem 'rake', '>= 12.3.3'
 gem 'foodcritic'
-gem 'rubocop'
+gem 'rubocop', '>= 0.49.0'
 
 group :development do
   gem 'guard'
